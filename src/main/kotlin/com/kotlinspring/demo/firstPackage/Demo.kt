@@ -14,7 +14,7 @@ class Demo{
     @GetMapping("/")
     fun defaultMessage(): String {
         log.println("Default end point")
-        return "Welcome to default page pf Kotlin-Spring demo project"
+        return "Welcome to default page of Kotlin-Spring demo project"
     }
 
     @GetMapping("/welcome")
