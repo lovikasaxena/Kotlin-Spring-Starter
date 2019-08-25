@@ -3,6 +3,7 @@ package com.kotlinspring.demo.firstPackage
 import jdk.nashorn.internal.runtime.regexp.joni.Config.log
 import lombok.extern.slf4j.Slf4j
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 
@@ -11,14 +12,15 @@ import org.springframework.web.bind.annotation.RestController
 class Demo{
 
     @GetMapping("/")
-    fun welcomePage(): String {
+    fun defaultMessage(): String {
         log.println("Default end point")
-        return "Welcome to Kotlin-Spring demo project"
+        return "Welcome to default page pf Kotlin-Spring demo project"
     }
 
     @GetMapping("/welcome")
-    fun dummyApi(): String {
+    fun welcome(@RequestParam(value = "name") name: String?): String {
         log.println("Welcome end point")
-        return "Kotlin-Spring: A match made in heaven"
+        val printName = if(name == null) "" else " $name"
+        return "Welcome$printName!  \n Kotlin-Spring: It's a match made in heaven!"
     }
 }
