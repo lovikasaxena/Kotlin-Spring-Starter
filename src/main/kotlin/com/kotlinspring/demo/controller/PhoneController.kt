@@ -1,4 +1,4 @@
-package com.kotlinspring.demo.firstPackage
+package com.kotlinspring.demo.controller
 
 import jdk.nashorn.internal.runtime.regexp.joni.Config.log
 import lombok.extern.slf4j.Slf4j
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @Slf4j
-class Demo{
+class PhoneController{
 
     @GetMapping("/")
     fun defaultMessage(): String {
